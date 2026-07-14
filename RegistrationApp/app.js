@@ -10,10 +10,13 @@ const app = express();
 
 // Database connection
 const db = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'C237_regapp'
+    host: 'c237-meilan-mysql.mysql.database.azure.com',
+    user: 'c237_010',
+    password: 'c237010@2026!',
+    database: 'c237_010_team2_registrationapp',
+    ssl:{
+        rejectUnauthorized: false
+    }
 });
 
 db.connect((err) => {
@@ -160,5 +163,5 @@ app.get('/logout', (req, res) => {
 
 // Starting the server
 app.listen(3000, () => {
-    console.log('Server started on port 3000');
+    console.log('Server started on port 3000 http://localhost:3000');
 });
